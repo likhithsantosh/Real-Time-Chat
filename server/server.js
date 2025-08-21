@@ -18,7 +18,10 @@ app.use(express.json());
 
 // CORS: Accept requests from any origin (development only)
 app.use(cors({
-  origin: '*',                    // allow all origins               // include cookies if needed
+  origin: "http://localhost:5173", 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
 
 app.use(clerkMiddleware());
