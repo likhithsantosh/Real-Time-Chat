@@ -10,21 +10,24 @@ import postRouter from './routes/postRoutes.js';
 import storyRouter from './routes/storyRoutes.js';
 import messageRouter from './routes/messageRoutes.js';
 
-const app = express();
+
 
 await connectDB();
+const app = express();
 
-app.use(express.json());
-
-// CORS: Accept requests from any origin (development only)
+// CORS should be the very first middleware
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: ["http://localhost:5173", "https://real-time-chat-tasq.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
+app.use(express.json());
 app.use(clerkMiddleware());
+
+
+
 
 app.get('/', (req, res) => res.send('Server is running'));
 
