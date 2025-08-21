@@ -18,10 +18,7 @@ app.use(express.json());
 
 // CORS: Accept requests from any origin (development only)
 app.use(cors({
-  origin: '*',                    // allow all origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true               // include cookies if needed
+  origin: '*',                    // allow all origins               // include cookies if needed
 }));
 
 app.use(clerkMiddleware());
