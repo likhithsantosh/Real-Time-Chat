@@ -16,8 +16,10 @@ await connectDB();
 app.use(cors({
     origin: '*', // allow all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true // only if you use cookies
 }));
+
 
 app.use(express.json());
 
